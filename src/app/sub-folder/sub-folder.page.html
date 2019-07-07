@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div *ngFor="let dir of dirList">
+      <ion-item *ngIf="dir.isDirectory" (click)="openInternalDir(dir)">
+        <ion-avatar item-start>
+          <ion-icon class="p10" [name]="dir.icon"></ion-icon>
+        </ion-avatar>
+        <h2>{{dir.name}}</h2>
+      </ion-item>
+      <ion-item *ngIf="!dir.isDirectory" (click)="fileService.openFile(dir.fullPath)">
+        <ion-avatar item-start>
+          <ion-icon class="p10" [name]="dir.icon"></ion-icon>
+        </ion-avatar>
+        <h2>{{dir.name}}</h2>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>

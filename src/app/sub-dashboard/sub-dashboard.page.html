@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let dir of list">
+    <ion-item (click)="fileService.openFile(dir.fullPath)">
+      <ion-avatar item-start>
+        <ion-icon class="p10" *ngIf="name=='Images'" name="images"></ion-icon>
+        <ion-icon class="p10" *ngIf="name=='Music'" name="musical-note"></ion-icon>
+        <ion-icon class="p10" *ngIf="name=='Video'" name="videocam"></ion-icon>
+        <ion-icon class="p10" *ngIf="name=='Documents'" name="document"></ion-icon>
+      </ion-avatar>
+      <h2>{{dir.name}}</h2>
+    </ion-item>
+  </div>
+
+</ion-content>

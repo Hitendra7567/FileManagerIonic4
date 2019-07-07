@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FileServiceService } from '../Services/file-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +9,16 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(
+    public fileService: FileServiceService,
+    public router: Router
+  ) {
+    this.fileService.getRootDirectory();
+  }
 
+  openData(category) {
+    this.router.navigate(['/sub-dashboard'], {
+      queryParams: category,
+    });
+  }
 }

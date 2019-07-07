@@ -1,9 +1,53 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      DashBoard
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-progress-bar type="indeterminate" *ngIf="fileService.isLoad"></ion-progress-bar>
+  <ion-row>
+    <ion-col col-4 (click)="openData('i')">
+      <ion-card>
+        <ion-card-header>
+          <ion-icon name="images"></ion-icon>
+        </ion-card-header>
+        <ion-card-content>
+          {{fileService.image.length}}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col col-4 (click)="openData('m')">
+      <ion-card>
+        <ion-card-header>
+          <ion-icon name="musical-note"></ion-icon>
+        </ion-card-header>
+        <ion-card-content>
+          {{fileService.music.length}}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col col-4 (click)="openData('v')">
+      <ion-card>
+        <ion-card-header>
+          <ion-icon name="videocam"></ion-icon>
+        </ion-card-header>
+        <ion-card-content>
+          {{fileService.video.length}}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col col-4 (click)="openData('d')">
+      <ion-card>
+        <ion-card-header>
+          <ion-icon name="document"></ion-icon>
+        </ion-card-header>
+        <ion-card-content>
+          {{fileService.doc.length}}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>
